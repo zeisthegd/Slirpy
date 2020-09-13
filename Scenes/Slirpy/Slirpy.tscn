@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Mascot Blue.fbx" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Slirpy/Camera/CameraNoiseShakeEffect.cs" type="Script" id=2]
+[ext_resource path="res://Scenes/Slirpy/Slirpy.cs" type="Script" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.33
+height = 0.4
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Armature|Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Armature|Run"
+
+[sub_resource type="AnimationNodeTransition" id=4]
+input_count = 2
+xfade_time = 0.15
+input_0/name = "idle"
+input_0/auto_advance = false
+input_1/name = "run"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeBlendTree" id=5]
+graph_offset = Vector2( -29, 164.5 )
+nodes/idle/node = SubResource( 2 )
+nodes/idle/position = Vector2( 20, 160 )
+nodes/output/position = Vector2( 660, 160 )
+nodes/run/node = SubResource( 3 )
+nodes/run/position = Vector2( 120, 280 )
+nodes/state/node = SubResource( 4 )
+nodes/state/position = Vector2( 320, 160 )
+node_connections = [ "output", 0, "state", "state", 0, "idle", "state", 1, "run" ]
+
+[node name="Slirpy" type="KinematicBody"]
+script = ExtResource( 3 )
+
+[node name="PlayerModel" parent="." instance=ExtResource( 1 )]
+
+[node name="Armature" parent="PlayerModel" index="0"]
+transform = Transform( 20.5369, 0, 0, 0, -2.44819e-06, 20.5369, 0, -20.5369, -2.44819e-06, -0.00161644, 0.291536, 0.033345 )
+
+[node name="CapsuleShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.531773, 0.0359008 )
+shape = SubResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CameraBase" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.774082, 0 )
+
+[node name="CameraRot" type="Spatial" parent="CameraBase"]
+
+[node name="SpringArm" type="SpringArm" parent="CameraBase/CameraRot"]
+transform = Transform( -1, 1.62921e-07, -2.82187e-07, 0, 0.866025, 0.5, 3.25841e-07, 0.5, -0.866025, 0, 0, 0 )
+spring_length = 6.0
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Camera" type="Camera" parent="CameraBase/CameraRot/SpringArm"]
+current = true
+far = 300.0
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CameraBase"]
+
+[node name="SoundEffects" type="Node" parent="."]
+
+[node name="RootMotionView" type="RootMotionView" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 5 )
+anim_player = NodePath("../PlayerModel/AnimationPlayer")
+active = true
+process_mode = 0
+parameters/state/current = 0
+
+[editable path="PlayerModel"]

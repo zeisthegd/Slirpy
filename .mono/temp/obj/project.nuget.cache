@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "dTr5uaY+G+IMib6ljGchE7rZoCyWH4NxDsVXsjQIQVXaypdrFJ0xBvgHSLM87CJP7hh5Xk5Kh2QaG3QHZbA2NQ==",
+  "success": true,
+  "projectFilePath": "D:\\Godot\\Projects\\Slirpy\\Slirpy.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net47\\1.0.0\\microsoft.netframework.referenceassemblies.net47.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

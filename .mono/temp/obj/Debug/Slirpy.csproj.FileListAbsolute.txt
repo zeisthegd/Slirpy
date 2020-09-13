@@ -1,0 +1,6 @@
+D:\Godot\Projects\Slirpy\.mono\temp\bin\Debug\Slirpy.dll
+D:\Godot\Projects\Slirpy\.mono\temp\bin\Debug\Slirpy.pdb
+D:\Godot\Projects\Slirpy\.mono\temp\obj\Debug\Slirpy.csprojAssemblyReference.cache
+D:\Godot\Projects\Slirpy\.mono\temp\obj\Debug\Slirpy.csproj.CoreCompileInputs.cache
+D:\Godot\Projects\Slirpy\.mono\temp\obj\Debug\Slirpy.dll
+D:\Godot\Projects\Slirpy\.mono\temp\obj\Debug\Slirpy.pdb
